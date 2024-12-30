@@ -71,12 +71,12 @@ func LoginWithApple(ctx context.Context) (*Response, error) {
 	if err := authService.Transition(ctx, EventLoginApple); err != nil {
 		return nil, err
 	}
-	
+
 	// Simulate Apple authentication success
 	if err := authService.Transition(ctx, EventAuthOK); err != nil {
 		return nil, err
 	}
-	
+
 	return &Response{
 		Success: true,
 		Message: "Waiting for Apple callback",
@@ -89,12 +89,12 @@ func LoginWithGoogle(ctx context.Context) (*Response, error) {
 	if err := authService.Transition(ctx, EventLoginGoogle); err != nil {
 		return nil, err
 	}
-	
+
 	// Simulate Google authentication success
 	if err := authService.Transition(ctx, EventAuthOK); err != nil {
 		return nil, err
 	}
-	
+
 	return &Response{
 		Success: true,
 		Message: "Waiting for Google callback",
@@ -107,12 +107,12 @@ func LoginWithEmail(ctx context.Context, req *EmailLoginRequest) (*Response, err
 	if err := authService.Transition(ctx, EventLoginEmail); err != nil {
 		return nil, err
 	}
-	
+
 	// Simulate sending email code
 	if err := authService.Transition(ctx, EventCodeSent); err != nil {
 		return nil, err
 	}
-	
+
 	return &Response{
 		Success: true,
 		Message: "Verification code sent",
@@ -152,7 +152,7 @@ func Logout(ctx context.Context) (*Response, error) {
 	if err := authService.Transition(ctx, EventLogout); err != nil {
 		return nil, err
 	}
-	
+
 	return &Response{
 		Success: true,
 		Message: "Logged out successfully",
@@ -165,7 +165,7 @@ func RequestDeletion(ctx context.Context) (*Response, error) {
 	if err := authService.Transition(ctx, EventRequestDeletion); err != nil {
 		return nil, err
 	}
-	
+
 	return &Response{
 		Success: true,
 		Message: "Deletion requested",
@@ -223,7 +223,7 @@ func ConfirmDeletion(ctx context.Context) (*Response, error) {
 	if err := authService.Transition(ctx, EventConfirmDeletion); err != nil {
 		return nil, err
 	}
-	
+
 	return &Response{
 		Success: true,
 		Message: "Account deleted successfully",
@@ -236,7 +236,7 @@ func CancelDeletion(ctx context.Context) (*Response, error) {
 	if err := authService.Transition(ctx, EventCancelDeletion); err != nil {
 		return nil, err
 	}
-	
+
 	return &Response{
 		Success: true,
 		Message: "Deletion cancelled",

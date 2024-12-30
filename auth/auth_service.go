@@ -23,7 +23,7 @@ const (
 	StateAuthenticated         AuthState = "authenticated"
 	StateError                 AuthState = "error"
 	StateLoggedOut            AuthState = "logged_out"
-	
+
 	// Account deletion states
 	StateDeletionRequested        AuthState = "deletion_requested"
 	StateVerifyingDeletionPassword AuthState = "verifying_deletion_password"
